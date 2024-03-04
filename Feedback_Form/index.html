@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Волкова Мария 231-322</title>
+  </head>
+  <style>
+    .header__wrapper {
+      margin: 0 auto;
+      padding: 0px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      background-color: #b6b894;
+    }
+    .header__title {
+      font-size: 70px;
+      font-weight: bolder;
+    }
+    .footer__wrapper {
+      margin: 0 auto;
+      padding: 50px;
+      background-color: #b6b894;
+    }
+    .footer__text {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    .form {
+      width: 100%;
+      max-width: 450px;
+      margin: 100px auto 100px;
+    }
+    .form__label {
+      font-size: 25px;
+      font-family: bolder;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .form__button {
+      padding: 10px;
+      background-color: #b6b894;
+      font-size: 25px;
+      font-family: bolder;
+    }
+    .main__link{
+      display: block;
+      color: black;
+      font-size: 25px;
+      font-family: bolder;
+      margin-bottom: 20px;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <div class="header__wrapper">
+        <img
+          src="img/polytech_logo_main_RGB.png"
+          alt="Логотип Московского Политеха"
+          class="header__logo"
+          width="200px"
+          height="175px"
+        />
+        <h1 class="header__title">Feedback Form</h1>
+      </div>
+    </header>
+    <main>
+      <form
+        action="https://httpbin.org/post"
+        class="form"
+        method="post"
+        id="feedbackForm"
+      >
+        <label for="" class="form__label"
+          >Введите ваше имя:<input
+            type="text"
+            name="name"
+            id="name"
+            class="form__input" /></label
+        ><label for="" class="form__label"
+          >Введите ваш email:<input
+            type="email"
+            name="email"
+            id="email"
+            class="form__input" /></label
+        ><label for="" class="form__label"
+          >Тип обращения:<br /><input
+            type="checkbox"
+            name="check"
+            class="form__checkbox"
+            value="Жалоба"
+          />Жалоба<br />
+          <input
+            type="checkbox"
+            name="check"
+            class="form__checkbox"
+            value="Предложение"
+          />Предложение<br />
+          <input
+            type="checkbox"
+            name="check"
+            class="form__checkbox"
+            value="Благодарность"
+          />Благодарность</label
+        ><label for="" class="form__label"
+          >Текст обращения:<input
+            type="text"
+            name="text"
+            id="text"
+            class="form__input" /></label
+        ><label for="" class="form__label"
+          >Вариант ответа:<br /><input
+            type="checkbox"
+            name="var"
+            id="sms"
+            class="form__checkbox"
+            value="Смс"
+          />Смс<br />
+          <input
+            type="checkbox"
+            name="var"
+            id="e-mail"
+            class="form__checkbox"
+            value="E-mail"
+          />E-mail</label
+        ><button class="form__button">Отправить</button>
+      </form>
+      <a href="backend.php" class="main__link">get_headers</a>
+    </main>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <p class="footer__text">
+          Собрать сайт из двух страниц. 1 страница: Сверстать форму обратной
+          связи. Отправку формы осуществить на URL: https://httpbin.org/post.
+          Добавить кнопку для перехода на 2 страницу. 2 страница: вывести на
+          страницу результат работы функции get_headers. Загрузить код в
+          удаленный репозиторий. Залить на хостинг.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
