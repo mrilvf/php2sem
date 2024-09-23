@@ -16,56 +16,104 @@
         gap: 100px;
         background-color: #b6b894;
     }
+
     .header__title {
         font-size: 70px;
         font-weight: bolder;
     }
+
     .footer__wrapper {
         margin: 400px auto 0 auto;
         padding: 50px;
         background-color: #b6b894;
     }
+
     .footer__text {
         text-align: center;
         font-size: 30px;
         font-weight: bolder;
     }
+
     .calculator {
         width: 300px;
         margin: 50px auto;
         text-align: center;
     }
+
     #display {
         width: 100%;
         height: 50px;
         margin-bottom: 10px;
         font-size: 20px;
     }
+
     .calc__button {
         width: 50px;
         height: 50px;
         font-size: 18px;
         margin: 5px;
     }
+
     .calc__button--num {
         background-color: rgb(228, 224, 213);
     }
+
     .calc__button--bracket {
         background-color: rgb(197, 191, 174);
     }
+
     .calc__button--operator {
         background-color: rgb(165, 156, 145);
     }
+
     .calc__button--del {
         background-color: #cbccbb;
     }
+
     .calc__button--count {
         background-color: #b1b469;
     }
+
     .calc__button:active {
-    transform: translateY(2px);
+        transform: translateY(2px);
     }
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.calc__button');
+        const clearButton = document.querySelector('.calc__button--del');
+        const resultButton = document.querySelector('.calc__button--count');
+        const url = 'back.php';
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                const value = this.textContent;
+                document.getElementById('display').value += value;
+            });
+        });
+
+        clearButton.addEventListener('click', function () {
+            document.getElementById('display').value = '';
+        });
+
+        resultButton.addEventListener('click', () => {
+            const expression = document.getElementById('display').value;
+            fetch(url, {
+                method: 'POST',
+                body: expression
+            }).then(response => {
+                if (!response.ok) {
+                    console.log('Ошибка');
+                }
+                return response.text()
+            }).then(data => {
+                document.getElementById('display').value = data;
+            }).catch(error => {
+                console.error('Ошибка ', error);
+            })
+        })
+    });
+</script>
 
 <body>
     <header class="header">

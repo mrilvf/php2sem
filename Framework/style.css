@@ -1,0 +1,9 @@
+.btn-primary {
+    background-color: greenyellow;
+    border: none;
+    color: black;
+}
+.btn-warning {
+    background-color: yellow;
+    border: none;
+}
